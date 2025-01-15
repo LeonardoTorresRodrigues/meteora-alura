@@ -9,14 +9,14 @@ const Produtos = () => {
 
   function adicionarProduto(novoProduto) {
     const temOProduto = carrinho.some((itemDoCarrinho) => {
-      itemDoCarrinho.id === novoProduto.id
+      itemDoCarrinho.id === novoProduto.id;
     });
 
     if (!temOProduto) {
       novoProduto.quantidade = 1;
       return setCarrinho((carrinhoAnterior) => [
         ...carrinhoAnterior,
-        novoProduto
+        novoProduto,
       ]);
     }
 
@@ -25,7 +25,8 @@ const Produtos = () => {
         if (itemDoCarrinho.id === novoProduto.id)
           itemDoCarrinho.quantidade += 1;
         return itemDoCarrinho;
-      }));
+      })
+    );
   }
 
   return (
